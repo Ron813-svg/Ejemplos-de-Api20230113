@@ -4,11 +4,11 @@ const errorContainer = document.getElementById("error");
 
 const imageUrls = httpStatuses.map(status => `https://http.cat/${status}`);
 
-// Seleccionar una URL aleatoria
+
 const randomIndex = Math.floor(Math.random() * imageUrls.length);
 const randomImageUrl = imageUrls[randomIndex];
 
-// Establecer la imagen de fondo
+
 document.body.style.backgroundImage = `url(${randomImageUrl})`;
 document.body.style.backgroundSize = 'cover';
 document.body.style.backgroundPosition = 'center';
