@@ -1,4 +1,4 @@
-const url = 'https://dog.ceo/api/breeds/image/random/10'; 
+const url = 'https://dog.ceo/api/breeds/image/random/10';
 
 fetch(url)
   .then(response => {
@@ -8,10 +8,21 @@ fetch(url)
     return response.json();
   })
   .then(data => {
-    console.log(data); 
+    console.log(data);
     const cardsContainer = document.getElementById("dog-cards");
     if (data.message && data.message.length > 0) {
-      data.message.forEach(imageUrl => {
+      const imageUrls = data.message;
+
+     
+      const randomIndex = Math.floor(Math.random() * imageUrls.length);
+      const randomImageUrl = imageUrls[randomIndex];
+      
+      
+      document.body.style.backgroundImage = `url(${randomImageUrl})`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+
+      imageUrls.forEach(imageUrl => {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
